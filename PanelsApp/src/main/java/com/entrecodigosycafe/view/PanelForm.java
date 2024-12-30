@@ -13,7 +13,6 @@ public class PanelForm extends JFrame {
 
         this.add(containerPrincipal());
         this.setVisible(true);
-
     }
 
     private JPanel containerPrincipal () {
