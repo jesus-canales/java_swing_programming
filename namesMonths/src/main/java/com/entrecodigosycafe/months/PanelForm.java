@@ -22,16 +22,29 @@ public class PanelForm extends JFrame {
         pnlPrincipal.setBackground(new Color(192, 235, 166));
         pnlPrincipal.setLayout(new GridBagLayout());
 
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10,10,10,10);
+
         JButton btnEnero = new JButton("Enero");
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        pnlPrincipal.add(btnEnero, gbc);
+
         JButton btnFebrero = new JButton("Febrero");
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        pnlPrincipal.add(btnFebrero, gbc);
+
         JButton btnMarzo = new JButton("Marzo");
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        pnlPrincipal.add(btnMarzo, gbc);
+
         JButton btnAbril = new JButton("Abril");
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        pnlPrincipal.add(btnAbril, gbc);
 
-        pnlPrincipal.add(btnEnero);
-        pnlPrincipal.add(btnFebrero);
-        pnlPrincipal.add(btnMarzo);
-        pnlPrincipal.add(btnAbril);
         return pnlPrincipal;
-
     }
 }
