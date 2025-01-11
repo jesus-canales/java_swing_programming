@@ -17,13 +17,20 @@ public class PanelForm extends JFrame {
 
     private JPanel containerPrincipal () {
 
-        JButton btnMessage = new JButton("Mensaje");
-
         JPanel pnlPrincipal = new JPanel();
         pnlPrincipal.setBackground(new Color(8, 194, 255));
-        pnlPrincipal.setLayout(new BoxLayout(pnlPrincipal, BoxLayout.Y_AXIS));
+        pnlPrincipal.setLayout(new GridBagLayout());
 
-        pnlPrincipal.add(btnMessage);
+        JButton btnMessage = new JButton();
+        btnMessage.setText("Haz click aquí");
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.fill = GridBagConstraints.NONE;
+
+        pnlPrincipal.add(btnMessage, gbc);
         return pnlPrincipal;
     }
 }
