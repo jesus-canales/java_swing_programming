@@ -2,6 +2,8 @@ package com.entrecodigosycafe.input;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PanelForm extends JFrame {
     public PanelForm() {
@@ -18,7 +20,7 @@ public class PanelForm extends JFrame {
     private JPanel containerPrincipal () {
 
         JPanel pnlPrincipal = new JPanel();
-        pnlPrincipal.setBackground(new Color(242, 107, 15));
+        pnlPrincipal.setBackground(new Color(255, 207, 157));
         pnlPrincipal.setLayout(new GridBagLayout());
 
         JLabel lblName = new JLabel("Ingresa tu nombre:");
@@ -48,6 +50,15 @@ public class PanelForm extends JFrame {
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         pnlPrincipal.add(btnMessaje, gbc);
+
+        btnMessaje.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombre = txtName.getText();
+                JOptionPane.showMessageDialog(PanelForm.this, "¡Bienvenido " + nombre + "!");
+                txtName.setText("");
+            }
+        });
 
         return pnlPrincipal;
     }
