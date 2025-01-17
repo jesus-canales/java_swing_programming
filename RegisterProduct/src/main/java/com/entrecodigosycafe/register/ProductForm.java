@@ -1,6 +1,7 @@
 package com.entrecodigosycafe.register;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class ProductForm extends JFrame {
 
@@ -11,7 +12,9 @@ public class ProductForm extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
-        add(new FormPanel());
+        this.setLayout(new BorderLayout());
+        add(new FormPanel(), BorderLayout.CENTER);
+        add(new ButtonPanel(), BorderLayout.SOUTH);
         setVisible(true);
     }
 }
