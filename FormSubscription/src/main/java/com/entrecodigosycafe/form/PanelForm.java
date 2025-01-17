@@ -8,7 +8,7 @@ public class PanelForm extends JFrame {
         // Define la personalización de la ventana
         setTitle("Formulario de Suscripción");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 500);
+        setSize(400, 300);
         setLocationRelativeTo(null);
         setResizable(false);
 
