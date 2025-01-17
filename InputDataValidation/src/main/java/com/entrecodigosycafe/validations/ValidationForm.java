@@ -11,6 +11,7 @@ public class ValidationForm extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
+        add(new FormPanel());
         setVisible(true);
     }
 
