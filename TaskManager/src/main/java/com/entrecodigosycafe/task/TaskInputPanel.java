@@ -2,6 +2,8 @@ package com.entrecodigosycafe.task;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TaskInputPanel extends JPanel {
 
@@ -19,6 +21,7 @@ public class TaskInputPanel extends JPanel {
 
         btnAddTask = new JButton("Agregar...");
         btnAddTask.setPreferredSize(new Dimension(120, 30));
+
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 5, 10, 5);
