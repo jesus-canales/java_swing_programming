@@ -3,6 +3,8 @@ package com.entrecodigosycafe.task;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TaskInfoPanel extends JPanel {
     private static JLabel lblInfo;
@@ -17,5 +19,19 @@ public class TaskInfoPanel extends JPanel {
 
         add(lblInfo, BorderLayout.CENTER);
 
+        Timer timer = new Timer(6000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actualizarInfo();
+            }
+        });
+        timer.start();
+        actualizarInfo();
     }
+
+    public static void actualizarInfo () {
+        int totalTasks = TaskListPanel.getTaskCount();
+        lblInfo.setText( "Total de tareas asignadas: " + totalTasks );
+    }
+
 }

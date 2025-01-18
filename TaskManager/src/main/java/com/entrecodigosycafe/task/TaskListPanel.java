@@ -73,4 +73,8 @@ public class TaskListPanel extends JPanel {
         taskListModel.addElement(task);
     }
 
+    public static int getTaskCount () {
+        return taskListModel.size();
+    }
+
 }
