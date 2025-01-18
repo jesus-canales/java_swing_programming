@@ -9,6 +9,6 @@ public class MainPanel extends JPanel {
         setLayout(new BorderLayout());
 
         add(new TaskInputPanel(), BorderLayout.NORTH);
-        add(new TaskListPanel(), BorderLayout.SOUTH);
+        add(new TaskListPanel(), BorderLayout.CENTER);
     }
 }
