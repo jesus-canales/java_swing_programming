@@ -11,6 +11,7 @@ public class TaskManagerApp extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
+        add(new MainPanel());
         setVisible(true);
     }
 }
