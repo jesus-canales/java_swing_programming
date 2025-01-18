@@ -50,6 +50,16 @@ public class TaskListPanel extends JPanel {
             }
         });
 
+        btnMarkComplete.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int selectedIndex = taskList.getSelectedIndex();
+                if ( selectedIndex != -1 ) {
+                    Task task = taskListModel.getElementAt(selectedIndex);
+                    task.setCompleted(true);
+                }
+            }
+        });
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(btnEditTask);
         buttonPanel.add(btnDeleteTask);
