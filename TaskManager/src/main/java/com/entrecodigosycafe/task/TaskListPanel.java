@@ -41,6 +41,15 @@ public class TaskListPanel extends JPanel {
             }
         });
 
+        btnDeleteTask.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int selectedIndex = taskList.getSelectedIndex();
+                if ( selectedIndex != -1 ) {
+                    taskListModel.removeElementAt(selectedIndex);
+                }
+            }
+        });
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(btnEditTask);
         buttonPanel.add(btnDeleteTask);
