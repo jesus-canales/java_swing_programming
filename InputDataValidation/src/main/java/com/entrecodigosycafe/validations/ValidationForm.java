@@ -1,6 +1,7 @@
 package com.entrecodigosycafe.validations;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class ValidationForm extends JFrame {
 
@@ -11,7 +12,9 @@ public class ValidationForm extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
-        add(new FormPanel());
+        setLayout(new BorderLayout());
+        add(new FormPanel(), BorderLayout.CENTER);
+        add(new ButtonPanel(), BorderLayout.SOUTH);
         setVisible(true);
     }
 
