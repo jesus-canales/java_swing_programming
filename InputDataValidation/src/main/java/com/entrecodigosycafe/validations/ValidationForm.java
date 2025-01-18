@@ -7,7 +7,7 @@ public class ValidationForm extends JFrame {
     public ValidationForm() {
         setTitle("Formulario de Validación de Datos");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 400);
+        setSize(400, 300);
         setLocationRelativeTo(null);
         setResizable(false);
 
