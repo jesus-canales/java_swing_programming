@@ -21,7 +21,21 @@ public class TaskInputPanel extends JPanel {
 
         btnAddTask = new JButton("Agregar...");
         btnAddTask.setPreferredSize(new Dimension(120, 30));
-
+        btnAddTask.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String taskName = txtTaskName.getText();
+                if ( !taskName.isEmpty() ) {
+                    TaskListPanel.addTask( new Task(taskName));
+                    txtTaskName.setText("");
+                } else {
+                    JOptionPane.showMessageDialog( null,
+                            "Por favor ingrese una tarea",
+                            "Error de validación",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 5, 10, 5);

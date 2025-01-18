@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TaskListPanel extends JPanel {
-    private static DefaultListModel taskListModel;
-    private JList taskList;
+    private static DefaultListModel<Task> taskListModel;
+    private JList<Task> taskList;
     private JButton btnEditTask;
     private JButton btnDeleteTask;
     private JButton btnMarkComplete;
@@ -15,7 +15,7 @@ public class TaskListPanel extends JPanel {
         setLayout(new BorderLayout());
 
         taskListModel = new DefaultListModel<>();
-        taskList = new JList<>();
+        taskList = new JList<>(taskListModel);
         taskList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         btnEditTask = new JButton("Editar");
@@ -29,6 +29,10 @@ public class TaskListPanel extends JPanel {
 
         add(new JScrollPane(taskList), BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+    public static void addTask(Task task) {
+        taskListModel.addElement(task);
     }
 
 }
