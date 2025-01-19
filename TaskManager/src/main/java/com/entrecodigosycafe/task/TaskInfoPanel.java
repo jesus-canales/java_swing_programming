@@ -19,7 +19,7 @@ public class TaskInfoPanel extends JPanel {
 
         add(lblInfo, BorderLayout.CENTER);
 
-        Timer timer = new Timer(6000, new ActionListener() {
+        Timer timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 actualizarInfo();
@@ -31,7 +31,8 @@ public class TaskInfoPanel extends JPanel {
 
     public static void actualizarInfo () {
         int totalTasks = TaskListPanel.getTaskCount();
-        lblInfo.setText( "Total de tareas asignadas: " + totalTasks );
+        int completedTasks = TaskListPanel.getCompletedTaskCount();
+        lblInfo.setText( "Total de tareas asignadas: " + totalTasks + "." + " Tareas completadas: " + completedTasks );
     }
 
 }

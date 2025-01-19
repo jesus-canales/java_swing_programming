@@ -77,4 +77,14 @@ public class TaskListPanel extends JPanel {
         return taskListModel.size();
     }
 
+    public static int getCompletedTaskCount() {
+        int count = 0;
+        for ( int i = 0; i < taskListModel.size(); i++ ) {
+            if ( taskListModel.get(i).isCompleted() ) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 }
