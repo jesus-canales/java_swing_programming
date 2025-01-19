@@ -14,7 +14,7 @@ public class TaskInfoPanel extends JPanel {
 
         lblInfo = new JLabel("Gestiona tareas de manera eficiente");
         lblInfo.setBorder(new EmptyBorder(15, 0, 15,0));
-        lblInfo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblInfo.setFont(new Font("Tahoma", Font.PLAIN, 14));
         lblInfo.setHorizontalAlignment(SwingConstants.CENTER);
 
         add(lblInfo, BorderLayout.CENTER);
@@ -32,7 +32,10 @@ public class TaskInfoPanel extends JPanel {
     public static void actualizarInfo () {
         int totalTasks = TaskListPanel.getTaskCount();
         int completedTasks = TaskListPanel.getCompletedTaskCount();
-        lblInfo.setText( "Total de tareas asignadas: " + totalTasks + "." + " Tareas completadas: " + completedTasks );
+        int pendingTasks = totalTasks - completedTasks;
+        lblInfo.setText( "Total de tareas asignadas: " + totalTasks + " | " +
+                " Tareas completadas: " + completedTasks + " | " +
+                "Tareas pendientes: " + pendingTasks );
     }
 
 }
