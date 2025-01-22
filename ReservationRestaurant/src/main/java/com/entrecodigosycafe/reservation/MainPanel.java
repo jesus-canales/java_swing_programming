@@ -9,5 +9,6 @@ public class MainPanel extends JPanel {
         setLayout(new BorderLayout());
 
         add(new ReservationFormPanel(), BorderLayout.NORTH);
+        add(new ReservationTablePanel(), BorderLayout.CENTER);
     }
 }
