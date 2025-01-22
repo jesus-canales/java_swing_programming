@@ -10,6 +10,7 @@ public class ReservationApp extends JFrame {
         setSize(800, 600);
         setLocationRelativeTo(null);
 
+        add(new MainPanel());
         setVisible(true);
     }
 }
