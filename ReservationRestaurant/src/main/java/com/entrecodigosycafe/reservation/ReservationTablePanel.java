@@ -18,5 +18,10 @@ public class ReservationTablePanel extends JPanel {
         add(new JScrollPane(table), BorderLayout.CENTER);
     }
 
+    public static void addReservation(Reservation reservation) {
+        Object[] row = {reservation.getName(), reservation.getPhone(), reservation.getDate(), reservation.getTime()};
+        tableModel.addRow(row);
+    }
+
 
 }

@@ -1,13 +1,14 @@
 package com.entrecodigosycafe.reservation;
 
 import com.github.lgooddatepicker.components.TimePicker;
-import org.jdatepicker.JDatePicker;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Properties;
 
 public class ReservationFormPanel extends JPanel {
@@ -29,7 +30,7 @@ public class ReservationFormPanel extends JPanel {
         JLabel lblName = new JLabel("Nombre: ");
         txtName = new JTextField(20);
 
-        JLabel lblPhone = new JLabel("Telefono: ");
+        JLabel lblPhone = new JLabel("Teléfono: ");
         txtPhone = new JTextField(20);
 
         JLabel lblDate = new JLabel("Fecha: ");
@@ -55,33 +56,65 @@ public class ReservationFormPanel extends JPanel {
         gbc.gridy = 0;
         add(txtName, gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.gridx = 2;
+        gbc.gridy = 0;
         add(lblPhone, gbc);
 
-        gbc.gridx = 1;
-        gbc.gridy = 1;
+        gbc.gridx = 3;
+        gbc.gridy = 0;
         add(txtPhone, gbc);
 
         gbc.gridx = 0;
-        gbc.gridy = 2;
+        gbc.gridy = 1;
         add(lblDate, gbc);
 
         gbc.gridx = 1;
-        gbc.gridy = 2;
+        gbc.gridy = 1;
         add(datePicker, gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 3;
+        gbc.gridx = 2;
+        gbc.gridy = 1;
         add(lblTime, gbc);
 
-        gbc.gridx = 1;
-        gbc.gridy = 3;
+        gbc.gridx = 3;
+        gbc.gridy = 1;
         add(timePicker, gbc);
 
         gbc.gridx = 0;
-        gbc.gridy = 4;
-        gbc.gridwidth = 2;
+        gbc.gridy = 2;
+        gbc.gridwidth = 4;
         add(btnSubmit, gbc);
+
+        btnSubmit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handleReservation();
+            }
+        });
+    }
+
+    public void handleReservation() {
+        String name = txtName.getText();
+        String phone = txtPhone.getText();
+        String date = datePicker.getJFormattedTextField().getText();
+        String time = timePicker.getText();
+
+        if (name.isEmpty() || phone.isEmpty() || date.isEmpty() || time.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor complete todos los campos",
+                    "Error de validación", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            ReservationTablePanel.addReservation(new Reservation(name, phone, date, time));
+            JOptionPane.showMessageDialog(this,
+                    "Reserva registrada exitosamente",
+                    "Confirmacion", JOptionPane.INFORMATION_MESSAGE);
+            clearForm();
+        }
+    }
+
+    private void clearForm () {
+        txtName.setText("");
+        txtPhone.setText("");
+        datePicker.getJFormattedTextField().setText("");
+        timePicker.setText("");
     }
 }
