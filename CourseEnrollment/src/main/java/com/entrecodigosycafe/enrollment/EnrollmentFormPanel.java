@@ -2,6 +2,8 @@ package com.entrecodigosycafe.enrollment;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class EnrollmentFormPanel extends JPanel {
     private JTextField txtName;
@@ -90,5 +92,48 @@ public class EnrollmentFormPanel extends JPanel {
         gbc.anchor = GridBagConstraints.CENTER;
         add(btnSubmit, gbc);
 
+        btnSubmit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handEnrollment();
+            }
+        });
+
+    }
+
+    private void handEnrollment() {
+        String nombres = txtName.getText();
+        String apellidos = txtLastName.getText();
+        String cursos = "";
+        if (chkJava.isSelected()) cursos += "Java ";
+        if (chkPython.isSelected()) cursos += "Python ";
+        if (chkJavaScript.isSelected()) cursos += "JavaScript ";
+        if (chkCPlusPlus.isSelected()) cursos += "C++ ";
+        String modalidad = "";
+        if (rbtPresencial.isSelected()) modalidad = "Presencial";
+        else if (rbtVirtual.isSelected()) modalidad = "Virtual";
+
+        if (nombres.isEmpty() || apellidos.isEmpty() || cursos.isEmpty() || modalidad.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor, complete todos los campos.",
+                    "Error de validación", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String resumen = "Nombres: " + nombres + "\n" +
+                             "Apellidos: " + apellidos + "\n" +
+                             "Cursos: " + cursos + "\n" +
+                             "Modalidad: " + modalidad;
+            JOptionPane.showMessageDialog(this, resumen, "Error", JOptionPane.INFORMATION_MESSAGE);
+            clearForm();
+        }
+    }
+
+    private void clearForm () {
+        txtName.setText("");
+        txtLastName.setText("");
+        chkJava.setSelected(false);
+        chkPython.setSelected(false);
+        chkJavaScript.setSelected(false);
+        chkCPlusPlus.setSelected(false);
+        rbtPresencial.setSelected(false);
+        rbtVirtual.setSelected(false);
     }
 }
