@@ -11,7 +11,10 @@ public class EnrollmentFormPanel extends JPanel {
     private JButton btnSubmit;
 
     public EnrollmentFormPanel() {
+        Color fondoColor = new Color(255, 251, 218);
+
         setLayout(new GridBagLayout());
+        setBackground(fondoColor);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
@@ -44,10 +47,15 @@ public class EnrollmentFormPanel extends JPanel {
         gbc.gridwidth = 1;
         add(lblCourses, gbc);
         JPanel coursePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        coursePanel.setBackground(fondoColor);
         chkJava = new JCheckBox("Java");
+        chkJava.setBackground(fondoColor);
         chkPython = new JCheckBox("Python");
+        chkPython.setBackground(fondoColor);
         chkJavaScript = new JCheckBox("JavaScript");
+        chkJavaScript.setBackground(fondoColor);
         chkCPlusPlus = new JCheckBox("C++");
+        chkCPlusPlus.setBackground(fondoColor);
         coursePanel.add(chkJava);
         coursePanel.add(chkPython);
         coursePanel.add(chkJavaScript);
@@ -61,8 +69,11 @@ public class EnrollmentFormPanel extends JPanel {
         gbc.gridy = 3;
         add(lblModalidad, gbc);
         JPanel modalidadPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        modalidadPanel.setBackground(fondoColor);
         rbtPresencial = new JRadioButton("Presencial");
+        rbtPresencial.setBackground(fondoColor);
         rbtVirtual = new JRadioButton("Virtual");
+        rbtVirtual.setBackground(fondoColor);
         ButtonGroup modalidadGrupo = new ButtonGroup();
         modalidadGrupo.add(rbtPresencial);
         modalidadGrupo.add(rbtVirtual);
