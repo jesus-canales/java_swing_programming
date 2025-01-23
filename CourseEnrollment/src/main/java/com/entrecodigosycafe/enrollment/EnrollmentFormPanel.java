@@ -6,13 +6,8 @@ import java.awt.*;
 public class EnrollmentFormPanel extends JPanel {
     private JTextField txtName;
     private JTextField txtLastName;
-    private JCheckBox chkJava;
-    private JCheckBox chkPython;
-    private JCheckBox chkJavaScript;
-    private JCheckBox chkDart;
-    private JRadioButton rbtMorning;
-    private JRadioButton rbtAfternoon;
-    private JRadioButton rbtEvening;
+    private JCheckBox chkJava, chkPython, chkJavaScript, chkCPlusPlus;
+    private JRadioButton rbtPresencial, rbtVirtual;
     private JButton btnSubmit;
 
     public EnrollmentFormPanel() {
@@ -23,73 +18,66 @@ public class EnrollmentFormPanel extends JPanel {
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         JLabel lblName = new JLabel("Nombres:");
-        gbc.gridx = 0;
         gbc.gridy = 0;
+        gbc.gridwidth = 1;
         add(lblName, gbc);
-        txtName = new JTextField(20);
+        txtName = new JTextField();
+        txtName.setPreferredSize(new Dimension(150,25));
         gbc.gridx = 1;
-        gbc.gridy = 0;
+        gbc.gridwidth = 2;
         add(txtName, gbc);
 
         JLabel lblLastName = new JLabel("Apellidos:");
-        gbc.gridx = 2;
-        gbc.gridy = 0;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
         add(lblLastName, gbc);
-        txtLastName = new JTextField(20);
-        gbc.gridx = 3;
-        gbc.gridy = 0;
+        txtLastName = new JTextField();
+        txtLastName.setPreferredSize(new Dimension(150,25));
+        gbc.gridx = 1;
+        gbc.gridwidth = 2;
         add(txtLastName, gbc);
 
         JLabel lblCourses = new JLabel("Cursos:");
         gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.gridy = 2;
+        gbc.gridwidth = 1;
         add(lblCourses, gbc);
-
+        JPanel coursePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         chkJava = new JCheckBox("Java");
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        add(chkJava, gbc);
         chkPython = new JCheckBox("Python");
-        gbc.gridx = 2;
-        gbc.gridy = 1;
-        add(chkPython, gbc);
         chkJavaScript = new JCheckBox("JavaScript");
-        gbc.gridx = 3;
-        gbc.gridy = 1;
-        add(chkJavaScript, gbc);
-        chkDart = new JCheckBox("Dart");
-        gbc.gridx = 4;
-        gbc.gridy = 1;
-        add(chkDart, gbc);
-
-        JLabel lblFrecuency = new JLabel("Frecuencia:");
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        add(lblFrecuency, gbc);
-        rbtMorning = new JRadioButton("Mañana");
+        chkCPlusPlus = new JCheckBox("C++");
+        coursePanel.add(chkJava);
+        coursePanel.add(chkPython);
+        coursePanel.add(chkJavaScript);
+        coursePanel.add(chkCPlusPlus);
         gbc.gridx = 1;
         gbc.gridy = 2;
-        add(rbtMorning, gbc);
-        rbtAfternoon = new JRadioButton("Tarde");
-        gbc.gridx = 2;
-        gbc.gridy = 2;
-        add(rbtAfternoon, gbc);
-        rbtEvening = new JRadioButton("Noche");
-        gbc.gridx = 3;
-        gbc.gridy = 2;
-        add(rbtEvening, gbc);
+        add(coursePanel, gbc);
 
-        ButtonGroup frecuenciaGrupo = new ButtonGroup();
-        frecuenciaGrupo.add(rbtMorning);
-        frecuenciaGrupo.add(rbtAfternoon);
-        frecuenciaGrupo.add(rbtEvening);
+        JLabel lblModalidad = new JLabel("Modalidad:");
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        add(lblModalidad, gbc);
+        JPanel modalidadPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        rbtPresencial = new JRadioButton("Presencial");
+        rbtVirtual = new JRadioButton("Virtual");
+        ButtonGroup modalidadGrupo = new ButtonGroup();
+        modalidadGrupo.add(rbtPresencial);
+        modalidadGrupo.add(rbtVirtual);
+        modalidadPanel.add(rbtPresencial);
+        modalidadPanel.add(rbtVirtual);
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        add(modalidadPanel, gbc);
 
         btnSubmit = new JButton("Inscribirse");
         gbc.gridx = 0;
-        gbc.gridy = 3;
+        gbc.gridy = 4;
+        gbc.gridwidth = 3;
+        gbc.anchor = GridBagConstraints.CENTER;
         add(btnSubmit, gbc);
-
-
 
     }
 }

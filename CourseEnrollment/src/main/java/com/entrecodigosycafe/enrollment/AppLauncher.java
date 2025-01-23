@@ -1,6 +1,6 @@
 package com.entrecodigosycafe.enrollment;
 
-public class LauncherApp {
+public class AppLauncher {
     public static void main(String[] args) {
         new CourseEnrollment();
     }
