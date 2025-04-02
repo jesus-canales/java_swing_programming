@@ -10,7 +10,7 @@ public class BannerForm extends JFrame {
         this.setTitle("Entre Códigos y Café");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setSize(500, 300);
+        this.setSize(600, 300);
         this.setLocationRelativeTo(null);
 
         URL iconURL = BannerForm.class.getClassLoader().getResource("images/codigocafe.png");
