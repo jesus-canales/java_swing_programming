@@ -29,7 +29,7 @@ public class PanelForm extends JFrame {
         btnMessage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("¡Botón clickeado!");
+                System.out.println("¡Botón clickeado... continuará!");
             }
         });
 
